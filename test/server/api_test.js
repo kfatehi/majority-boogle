@@ -14,6 +14,8 @@ describe("Routes", function() {
       .end(function (err, res) {
         if (err) throw err;
         expect(res.body).to.deep.eq({});
+        // Insert code that tests that the index actually worked,
+        // otherwise conduct that test in a downstream module
         done()
       })
     });
@@ -27,6 +29,9 @@ describe("Routes", function() {
       .expect('Content-Type', /json/)
       .end(function (err, res) {
         if (err) throw err;
+        // This will fail. See comments in
+        // src/server/routes/search_route.js
+        // src/server/routes/index_route.js
         expect(res.body).to.deep.eq({
           "matches": [{
             "pageId": 300,
