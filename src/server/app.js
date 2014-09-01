@@ -14,8 +14,5 @@ var allowCrossDomain = function(req, res, next) {
 app.use(allowCrossDomain);
 app.use(bodyParser.json({limit: '10mb'}));
 app.use(require('./routes'));
-app.get('/', function (req, res) {
-  res.json(require('../../package'))
-})
 
 module.exports = app;
