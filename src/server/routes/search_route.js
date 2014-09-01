@@ -24,6 +24,8 @@ module.exports = function (r) {
    * }
    */
   .post(function (req, res, next) {
+    // Insert Smarter Peoples' Logic
+    res.set('Content-Type', 'application/json')
     res.status(200).end('ok')
   })
 }

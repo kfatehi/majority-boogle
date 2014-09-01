@@ -17,6 +17,7 @@ module.exports = function (r) {
    * Content-type: application/json
    */
   .post(function (req, res, next) {
+    // Insert Smarter Peoples' Logic
     res.set('Content-Type', 'application/json')
     res.status(204).end()
   })
