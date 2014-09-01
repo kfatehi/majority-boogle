@@ -18,4 +18,14 @@ describe("Routes", function() {
       });
     });
   })
+
+  describe("POST /index", function () {
+    it("returns 204 no content with content-type json", function(done) {
+      request(app)
+      .get('/')
+      .expect(204)
+      .expect('Content-Type', /json/)
+      .end(done)
+    });
+  })
 })
