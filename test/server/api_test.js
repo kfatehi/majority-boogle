@@ -32,4 +32,26 @@ describe("Routes", function() {
       })
     });
   })
+
+  describe("GET /search?query=Elementary,%20dear%20Watson", function () {
+    it("returns 200 ok with content-type json and search results", function(done) {
+      request(app)
+      .post('/search')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end(function (err, res) {
+        if (err) throw err;
+        expect(res.body).to.deep.eq({
+          "matches": [{
+            "pageId": 300,
+            "score": 3
+          },{
+            "pageId": 12,
+            "score": 1
+          }]
+        });
+        done()
+      })
+    });
+  })
 })
