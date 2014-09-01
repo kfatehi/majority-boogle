@@ -17,6 +17,7 @@ module.exports = function (r) {
    * Content-type: application/json
    */
   .post(function (req, res, next) {
-    res.status(200).end('ok')
+    res.set('Content-Type', 'application/json')
+    res.status(204).end()
   })
 }

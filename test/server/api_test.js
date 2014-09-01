@@ -22,10 +22,14 @@ describe("Routes", function() {
   describe("POST /index", function () {
     it("returns 204 no content with content-type json", function(done) {
       request(app)
-      .get('/')
+      .post('/index')
       .expect(204)
       .expect('Content-Type', /json/)
-      .end(done)
+      .end(function (err, res) {
+        if (err) throw err;
+        expect(res.body).to.deep.eq({});
+        done()
+      })
     });
   })
 })
